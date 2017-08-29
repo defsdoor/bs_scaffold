@@ -1,0 +1,10 @@
+<%% if params[:page] %>
+  $('#<%= plural_table_name %>Rows')
+    .append('<%%= j render partial: 'row', collection: @<%= plural_table_name %>%>')
+    .data('nextPageUrl', '<%%= next_page @<%= plural_table_name %> %>');
+<%% else %>
+  $('#<%= plural_table_name %>TableContainer').replaceHTML('<%%= j render partial: 'table_container' %>');
+  $($('#<%= plural_table_name %>TableContainer').data('scrollTarget')).data('nextPageUrl', '<%%= next_page @<%= plural_table_name %> %>' );
+  $('#<%= plural_table_name %>TableContainer').initialiseNewContent( { "doFullHeight": true } );
+<%% end %> 
+

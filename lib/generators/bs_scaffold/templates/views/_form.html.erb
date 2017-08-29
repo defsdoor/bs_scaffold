@@ -1,0 +1,21 @@
+<%% <%= singular_table_name %> =  <%= class_name %>Presenter.new(@<%= singular_table_name %>, self ) %>
+<%%= simple_form_for <%= singular_table_name %>, remote: true do |f| %>
+  <%%= context_modal_header f, '<%= class_name.humanize %>' %>
+  <div class="modal-body">
+    <%%= f.error_notification %>
+    <div class="has-error">
+      <%%= f.error :base, error_method: :to_sentence %>
+    </div>
+    <% editable_attributes.each do |a| %>
+      <div class="row">
+        <%%= f.input :<%= a.name %>, wrapper_html: { class: 'col-sm-12' } %>
+      </div>
+    <% end %>
+    <div class="row">
+  </div>
+
+  <div class="modal-footer">
+    <%%= cancel_modal %>
+    <%%= f.submit class: 'btn btn-primary' %>
+  </div>
+<%% end %>

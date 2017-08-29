@@ -1,0 +1,18 @@
+<div id="<%= plural_table_name %>TableContainer" class="full-height infinite-scroll"
+                              data-scroll-target="#<%= plural_table_name %>Rows" 
+                              data-baseline="#<%= plural_table_name %>BaseLine"
+                              style="min-height: 320px">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+<% editable_attributes.each do |a| -%>
+        <th><%%= sc '<%= a.name %>', '<%= a.name.humanize %>', @sort_column, sort_link, '<%= plural_table_name %>' %>
+<% end -%>
+        <th class="links">
+    <tbody id="<%= plural_table_name %>Rows" data-next-page-url="<%%= next_page( @<%= plural_table_name %> ) %>">
+      <%%= render partial: 'row', collection: @<%= plural_table_name %> %>
+      <tr class="more table-info">
+        <td class="message" colspan="<%= editable_attributes.size + 1 %>">More
+  </table>
+</div>
+

@@ -1,0 +1,8 @@
+<%% if @<%= singular_table_name %>.errors.empty? %>
+  $('#Modal').modal('hide');
+  $('#<%= plural_table_name %>Rows').prepend('<%%= j render partial: "row.html", object: @<%= singular_table_name %> %>');
+  $('#<%= singular_table_name %>_<%%= @<%= singular_table_name %>id %>').flash();
+<%% else %>
+  <%%= render partial: 'form.js' %>
+<%% end %>
+

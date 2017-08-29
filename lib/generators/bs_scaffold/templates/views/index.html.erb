@@ -1,0 +1,32 @@
+<div id="<%= plural_table_name %>Page">
+  <h3><%= plural_table_name.pluralize.titleize %></h3>
+  <div class="row clearfix filter">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="sr-only" for="search">Search</label>
+        <div class="input-group">
+          <span class="input-group-addon"><%%= icon(:search) %></span>
+          <%%= text_field_tag :search, params[:search],
+            class: 'form-control observed <%= plural_table_name %> persisted',
+            placeholder: 'Enter search criteria',
+            id: 'usersSearch',
+            data: { url: <%= index_helper %>_path, collect: '.<%= plural_table_name %>.persisted' },
+            autocomplete: 'off' %>
+          <span class="input-group-btn">
+            <button class="btn btn-secondary reset-input" data-target="#<%= plural_table_name %>Search"><%%= icon :cancel %></button>
+          </span>
+        </div>
+      </div>
+		</div>
+
+		<div class="col-sm-6">
+			<%%= link_to icon(:plus, text: 'New <%= human_name %>'), <%= new_helper.gsub(/_url$/, "_path") %>,
+				class: 'btn btn-xs-block btn-primary float-sm-right',
+				data: { toggle: 'modal', target: '#Modal' },
+				remote: true %>
+		</div>
+	</div>
+
+	<%%= render partial: 'table_container' %>
+	<div id="<%= plural_table_name %>BaseLine"></div>
+</div>

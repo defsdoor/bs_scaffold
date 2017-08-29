@@ -1,0 +1,10 @@
+<%% if @<%= singular_name %>.destroyed? %>
+  <%% if @referred_by == 'index' %>
+    $('#user_<%%=@<%= singular_name %>.id %>').fadeOut();
+  <%% else %>
+    Turbolinks.visit('<%%= <%= index_helper %>_path %>');
+  <%% end %>
+<%% else %>
+  <%%= render 'common/flash' %>
+<%% end %>
+

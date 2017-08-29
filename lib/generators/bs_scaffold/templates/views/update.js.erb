@@ -1,0 +1,7 @@
+<%% if @<%= singular_table_name %>.errors.empty? %>
+  $('#Modal').modal('hide');
+  <%%= render partial: 'show.js' %>
+<%% else %>
+  <%%= render partial: 'form.js' %>
+<%% end %>
+
