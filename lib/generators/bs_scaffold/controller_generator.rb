@@ -34,8 +34,19 @@ module BsScaffold
         template "presenter.rb", File.join( "app/presenters", "#{singular_table_name}_presenter.rb")
       end
 
+      def copy_assets
+        template "extensions.js", "app/assets/javascripts/extensions.js"
+        template "startup.js", "app/assets/javascripts/startup.js"
+        template "styles.css.scss", "app/assets/stylesheets/styles.css.scss"
+        template "fontello-extensions.scss", "app/assets/stylesheets/fontello-extensions.scss"
+        template "sortable_columns.scss", "app/assets/stylesheets/sortable_columns.scss"
+      end
+
       def copy_helper
         template "helper.rb", File.join( "app/helpers", "#{plural_table_name}_helper.rb")
+        template "sort_helper.rb", "app/helpers/sort_helper.rb"
+        template "bootstrap_helper.rb", "app/helpers/bootstrap_helper.rb"
+        template "icons_helper.rb", "app/helpers/icons_helper.rb"
       end
       
       def add_route

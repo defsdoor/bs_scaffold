@@ -1,0 +1,21 @@
+th {
+  a.current {
+    &:after {
+      font-family: 'fontello';
+      padding-left: 2px;
+      padding-top: 3px;
+      color: $sort-icon-color;
+      text-decoration: none;
+    }
+    &.asc {
+      &:after {
+        content: "\e800";
+      }
+    }
+    &.desc {
+      &:after {
+        content: "\e801";
+      }
+    }
+  }
+}

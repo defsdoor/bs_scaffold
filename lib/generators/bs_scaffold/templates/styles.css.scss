@@ -1,0 +1,90 @@
+// $font-size-root: 12px;
+$enable-flex: false;
+$sort-icon-color: #ff0000;
+
+$banner-padding: 3px 0.5em 3px 0.5em;
+$banner-margin: 5px 0 5px 0;
+$banner-bg: rgba(0,0,0,.05) !default;
+
+$table-cell-padding: .5rem !default;
+
+$card-bg-accent: rgba(0,0,0,.05) !default;
+
+@import "bootstrap";
+@import "sortable_columns";
+@import "fontello";
+@import "fontello-extensions";
+
+body { font-size: 14px; }
+
+div.bootstrap-helper {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  z-index: 1000;
+}
+
+.has-error {
+  color: theme-color-level(danger, 6);
+}
+
+.full-height {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+tr.row-click {
+  cursor: pointer;
+}
+
+td.links {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+a.btn {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+div.tab-pane {
+  padding-top: 5px;
+}
+
+div.text-box {
+  height: 4em;
+  overflow-y: scroll;
+}
+
+div.config-view {
+  height: 15em;
+  overflow-y: scroll;
+}
+
+.font-fixed {
+  font-family: monospace;
+  font-size: 80%;
+}
+
+@mixin btn-block {
+  display: block;
+  padding-bottom: 8px;
+  margin-bottom: 3px;
+  width: 100%;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: "-#{$breakpoint}";
+    .btn#{$infix}-block  { @include btn-block; }
+  }
+}
+
+
+tr.nested-fields {
+  span.help-block {
+    color: theme-color-level(danger, 6);
+    display: block;
+  }
+}
