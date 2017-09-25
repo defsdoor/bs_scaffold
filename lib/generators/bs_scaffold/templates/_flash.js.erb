@@ -1,0 +1,5 @@
+$('#flash .alert').slideUp().fadeOut(function() { $(this).remove(); });
+<%% unless flash.empty? %>
+  $('#flash').append('<%%= j flash_messages true %>')
+<%% end %>
+$('#flash .alert').fadeIn("slow");
