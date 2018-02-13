@@ -5,16 +5,18 @@
       <div class="form-group">
         <label class="sr-only" for="search">Search</label>
         <div class="input-group">
-          <span class="input-group-addon"><%%= icon(:search) %></span>
+          <div class="input-group-prepend">
+            <span class="input-group-text"><%%= icon(:search) %></span>
+          </div>
           <%%= text_field_tag :search, params[:search],
             class: 'form-control observed <%= plural_table_name %> persisted',
             placeholder: 'Enter search criteria',
             id: 'usersSearch',
             data: { url: <%= index_helper %>_path, collect: '.<%= plural_table_name %>.persisted' },
             autocomplete: 'off' %>
-          <span class="input-group-btn">
+          <div class="input-group-append">
             <button class="btn btn-secondary reset-input" data-target="#<%= plural_table_name %>Search"><%%= icon :cancel %></button>
-          </span>
+          </div>
         </div>
       </div>
 		</div>
