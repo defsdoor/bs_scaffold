@@ -4,6 +4,6 @@
   <td><%%= @<%= singular_table_name %>.<%= a.name %> %>
 <% end -%>
 <td class="links">
-  <%%= link_to  icon('edit', tooltip: 'Edit <%= human_name %>'), <%= edit_helper %>, remote: true, data: { toggle: 'modal', target: '#Modal' } %>
-  <%%= link_to icon('cancel', tooltip: 'Delete <%= human_name %>'), <%= show_helper %>, remote: true, method: :delete %>
+  <%%= link_to  icon('edit', tooltip: 'Edit <%= human_name %>'), <%= edit_helper.gsub(/_url/,"_path") %>, remote: true, data: { toggle: 'modal', target: '#Modal' } %>
+  <%%= link_to icon('cancel', tooltip: 'Delete <%= human_name %>'), <%= show_helper.gsub(/_url/,"_path") %>, remote: true, method: :delete %>
 
