@@ -28,6 +28,8 @@ module BsScaffold
           new.js.erb
           _row.html.erb
           show.html.erb
+          _show.html.erb
+          _details.html.erb
           _show.js.erb
           _table_container.html.erb
           update.js.erb)
