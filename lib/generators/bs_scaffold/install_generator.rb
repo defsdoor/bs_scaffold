@@ -22,7 +22,6 @@ module BsScaffold
         gem 'fontello_rails_converter', group: :development
       end
 
-
       def copy_presenter
         template "base_presenter.rb", "app/presenters/base_presenter.rb"
       end

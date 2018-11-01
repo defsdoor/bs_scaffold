@@ -14,7 +14,6 @@ module BsScaffold
       class_option :orm, banner: "NAME", type: :string, required: true,
                          desc: "ORM to generate the controller for"
 
-
       def copy_controller_and_spec_files
         template "controller.rb", File.join( "app/controllers", "#{controller_file_name}_controller.rb")
       end
