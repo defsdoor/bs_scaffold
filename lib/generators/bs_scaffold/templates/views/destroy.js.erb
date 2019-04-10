@@ -1,5 +1,5 @@
 <%% if @<%= singular_name %>.destroyed? %>
-  $('<%= singular_name %>_<%%=@<%= singular_name %>.id %>').fadeOut();
+  $('#<%= singular_name %>_<%%=@<%= singular_name %>.id %>').fadeOut();
 <%% else %>
   <%%= render 'common/flash' %>
 <%% end %>

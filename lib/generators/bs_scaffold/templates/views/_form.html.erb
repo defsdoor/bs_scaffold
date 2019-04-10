@@ -7,9 +7,9 @@
       <%%= f.error :base, error_method: :to_sentence %>
     </div>
     <% editable_attributes.each do |a| %>
-      <div class="row">
-        <%%= f.input :<%= a.name %>, wrapper_html: { class: 'col-sm-12' } %>
-      </div>
+    <div class="row">
+      <%%= f.input :<%= a.name %>, wrapper_html: { class: 'col-sm-12' } %>
+    </div>
     <% end %>
   </div>
 
