@@ -6,7 +6,7 @@
     <thead>
       <tr>
 <% editable_attributes.each do |a| -%>
-        <th><%%= sc '<%= a.name %>', '<%= a.name.humanize %>', @sort_column, sort_link, '<%= plural_table_name %>' %>
+  <th><%%= sc '<%= a.name %>', <%= class_name %>.human_attribute_name(:<%=a.name.to_sym%>), @sort_column, sort_link, '<%= plural_table_name %>' %>
 <% end -%>
         <th class="links">
     <tbody id="<%= plural_table_name %>Rows" data-next-page-url="<%%= next_page( @<%= plural_table_name %> ) %>">

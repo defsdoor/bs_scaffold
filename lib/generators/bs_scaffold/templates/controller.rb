@@ -49,7 +49,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   def search_condition 
     s = params[:search]
-    [ '<%= editable_attributes.map {  |a| "#{a.name} LIKE ?" }.join(' OR ')%>', <%= Array.new(editable_attributes.map.size, '"%#{s}%"').join(', ') %>]
+    [ '<%= editable_attributes.map {  |a| "#{a.name} ILIKE :term" }.join(' OR ')%>', term: "%#{s}%" ]
   end
 
   def <%= "#{singular_table_name}_params" %>

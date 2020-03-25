@@ -1,5 +1,5 @@
 <div id="<%= plural_table_name %>Page">
-  <h3><%= plural_table_name.pluralize.titleize %></h3>
+  <h3><%%= <%= class_name %>.model_name.pluralize %></h3>
   <div class="row clearfix filter">
     <div class="col-sm-6">
       <div class="form-group">
@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="col-sm-6">
-			<%%= link_to icon(:plus, text: 'New <%= human_name %>'), <%= new_helper.gsub(/_url$/, "_path") %>,
+      <%%= link_to icon(:plus, text: "New  #{<%= class_name %>.model_name.human}"), <%= new_helper.gsub(/_url$/, "_path") %>,
 				class: 'btn btn-xs-block btn-primary float-sm-right',
 				data: { toggle: 'modal', target: '#Modal' },
 				remote: true %>
