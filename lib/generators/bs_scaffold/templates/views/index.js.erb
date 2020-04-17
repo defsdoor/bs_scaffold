@@ -4,7 +4,7 @@
     .data('nextPageUrl', '<%%= next_page @<%= plural_table_name %> %>');
 <%% else %>
   $('#<%= plural_table_name %>TableContainer').replaceHTML('<%%= j render partial: 'table_container' %>');
-  $($('#<%= plural_table_name %>TableContainer').data('scrollTarget')).data('nextPageUrl', '<%%= next_page @<%= plural_table_name %> %>' );
+  $($('#<%= plural_table_name %>TableContainer').data('scrollTarget')).data('nextPageUrl', '<%%= <%= plural_table_name %>_next_page @<%= plural_table_name %> %>' );
   $('#<%= plural_table_name %>TableContainer').initialiseNewContent( { "doFullHeight": true } );
 <%% end %> 
 
