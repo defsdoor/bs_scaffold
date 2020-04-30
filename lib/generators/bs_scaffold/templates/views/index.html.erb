@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="col-sm-6">
-      <%%= link_to icon(:plus, text: t( :new, record: <%= class_name %>.model_name.human)), <%= new_helper.gsub(/_url$/, "_path") %>,
+      <%%= link_to icon(:plus, text: t( :new, model: <%= class_name %>.model_name.human)), <%= new_helper.gsub(/_url$/, "_path") %>,
 				class: 'btn btn-xs-block btn-primary float-sm-right',
 				data: { toggle: 'modal', target: '#Modal' } %>
 		</div>
