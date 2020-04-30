@@ -2,7 +2,7 @@
 <div id="<%= singular_table_name %>">
 <% editable_attributes.map.each do |a| -%>
   <div class="row">
-    <%%= bs_col bs_field('<%= a.name.humanize %>', <%= singular_table_name %>.<%= a.name %>), class: 'col-sm-6' %>
+    <%%= bs_display(<%= singular_table_name %>, :<%= a.name %>) %>
   </div>
 <% end -%>
 </div>
