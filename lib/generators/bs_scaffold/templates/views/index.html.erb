@@ -1,9 +1,12 @@
+<%%- @page_class = "no-scroll" %>
+<%- content_for :page_header do %>
+  <%%= page_header <%= class_name %>.model_name.plural.titleize %>
+<% end %>
 <div id="<%= plural_table_name %>Page">
-  <h3><%%= <%= class_name %>.model_name.plural.titleize %></h3>
   <div class="row clearfix filter">
     <div class="col-sm-6">
       <div class="form-group">
-        <label class="sr-only" for="search">Search</label>
+        <label class="sr-only" for="search"><%= t(:search) %></label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><%%= icon(:search) %></span>
