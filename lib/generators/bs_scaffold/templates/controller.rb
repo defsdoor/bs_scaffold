@@ -65,6 +65,9 @@ class <%= controller_class_name %>Controller < ApplicationController
       ]).sort_column( params[:sort], params[:direction] )
   end
 
+  def flash_interpolation_options
+    { base_errors: @<%= singular_table_name %>.errors[:base].join(", ") }
+  end
 
 end
 <% end -%>
