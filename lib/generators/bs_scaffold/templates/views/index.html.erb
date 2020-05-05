@@ -2,35 +2,33 @@
 <%%- content_for :page_header do %>
   <%%= page_header <%= class_name %>.model_name.plural.titleize %>
 <%% end %>
-<div id="<%= plural_table_name %>Page">
-  <div class="row clearfix filter">
-    <div class="col-sm-6">
-      <div class="form-group">
-        <label class="sr-only" for="search"><%%= t(:search) %></label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><%%= icon(:search) %></span>
-          </div>
-          <%%= text_field_tag :search, params[:search],
-            class: 'form-control observed <%= plural_table_name %> persisted',
-            placeholder: 'Enter search criteria',
-            id: '<%= plural_table_name %>Search',
-            data: { url: <%= index_helper %>_path, collect: '.<%= plural_table_name %>.persisted' },
-            autocomplete: 'off' %>
-          <div class="input-group-append">
-            <button class="btn btn-secondary reset-input" data-target="#<%= plural_table_name %>Search"><%%= icon :cancel %></button>
-          </div>
+<div class="row clearfix filter">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="sr-only" for="search"><%%= t(:search) %></label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><%%= icon(:search) %></span>
+        </div>
+        <%%= text_field_tag :search, params[:search],
+          class: 'form-control observed <%= plural_table_name %> persisted',
+          placeholder: 'Enter search criteria',
+          id: '<%= plural_table_name %>Search',
+          data: { url: <%= index_helper %>_path, collect: '.<%= plural_table_name %>.persisted' },
+          autocomplete: 'off' %>
+        <div class="input-group-append">
+          <button class="btn btn-secondary reset-input" data-target="#<%= plural_table_name %>Search"><%%= icon :cancel %></button>
         </div>
       </div>
-		</div>
+    </div>
+  </div>
 
-		<div class="col-sm-6">
-      <%%= link_to icon(:plus, text: t( :new, model: <%= class_name %>.model_name.human)), <%= new_helper.gsub(/_url$/, "_path") %>,
-				class: 'btn btn-xs-block btn-primary float-sm-right',
-				data: { toggle: 'modal', target: '#Modal' } %>
-		</div>
-	</div>
-
-	<%%= render partial: 'table_container' %>
-	<div id="<%= plural_table_name %>BaseLine"></div>
+  <div class="col-sm-6">
+    <%%= link_to icon(:plus, text: t( :new, model: <%= class_name %>.model_name.human)), <%= new_helper.gsub(/_url$/, "_path") %>,
+      class: 'btn btn-xs-block btn-primary float-sm-right',
+      data: { toggle: 'modal', target: '#Modal' } %>
+  </div>
 </div>
+
+<%%= render partial: 'table_container' %>
+<div id="<%= plural_table_name %>BaseLine"></div>
