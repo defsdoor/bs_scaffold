@@ -6,7 +6,7 @@
     <div class="has-error">
       <%%= f.error :base, error_method: :to_sentence %>
     </div>
-    <%%= hidden_field_tag :back_to, params[:back_to] %>
+    <%%= hidden_field_tag :back_to, @back_to %>
     <div class="row">
       <%- editable_attributes.each do |a| -%>
         <%%= f.input :<%= a.name %>, wrapper_html: { class: 'col-sm-12' } %>
