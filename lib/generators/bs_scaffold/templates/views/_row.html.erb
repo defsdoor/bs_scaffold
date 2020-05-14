@@ -1,4 +1,4 @@
-<%% human_name = <%= class_name %>.model_name.human) %>
+<%% human_name = <%= class_name %>.model_name.human %>
 <%% @<%= singular_table_name %> = <%= class_name %>Presenter.new( row, self ) %>
 <tr id="<%= singular_table_name %>_<%%= row.id %>">
 <% editable_attributes.map.each do |a| -%>
