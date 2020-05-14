@@ -10,6 +10,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   respond_to :html, :js
 
   def index
+    authorize <%= class_name %>, :list?
   end
 
   def show
@@ -23,11 +24,12 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   def new
+    authorize <%= class_name %>, :create?
     @<%= singular_table_name %> = <%= orm_class.build(class_name) %>
   end
 
   def create
-    @<%= singular_table_name %> = <%= class_name %>.create( <%= singular_table_name %>_params )
+    @<%= singular_table_name %> = authorize <%= class_name %>.create( <%= singular_table_name %>_params )
   end
 
   def destroy
@@ -38,7 +40,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   private
 
   def get_<%= singular_table_name %>
-    @<%= singular_table_name %> = <%= orm_class.find( class_name, "params[:id]" ) %>
+    @<%= singular_table_name %> = authorize <%= orm_class.find( class_name, "params[:id]" ) %>
   end
 
   def get_<%= plural_table_name %>

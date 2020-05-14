@@ -20,6 +20,7 @@ module BsScaffold
         gem 'kaminari'
         gem 'responders', version: '~> 2.0'
         gem 'fontello_rails_converter', group: :development
+        gem 'pundit'
       end
 
       def copy_presenter

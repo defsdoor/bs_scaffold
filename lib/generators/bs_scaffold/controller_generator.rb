@@ -26,6 +26,10 @@ module BsScaffold
         template "helper.rb", File.join( "app/helpers", "#{plural_table_name}_helper.rb")
       end
 
+      def copy_policy
+        template "policy.rb", File.join( "app/policies", "#{singular_table_name}_policy.rb")
+      end
+
       def add_route
         route "resources :#{plural_table_name}"
       end
