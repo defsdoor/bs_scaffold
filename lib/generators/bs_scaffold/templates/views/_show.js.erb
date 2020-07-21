@@ -1,4 +1,2 @@
 <%%= render partial: 'common/flash.js' %> 
-$('#<%= singular_table_name %>_<%%= @<%= singular_table_name %>.id %>').replaceHTML('<%%= j render partial: 'row', object: @<%= singular_table_name %> %>');
-$('#<%= singular_table_name %>_<%%= @<%= singular_table_name %>.id %>').flash();
-
+<%%= render partial: <%= plural_table_name %>_partial(@back_to), object: @<%= singular_table_name%> %>

@@ -1,21 +1,21 @@
 <%% <%= singular_table_name %> =  <%= class_name %>Presenter.new(@<%= singular_table_name %>, self ) %>
-<%%= simple_form_for <%= singular_table_name %>, remote: true do |f| %>
-  <%%= context_modal_header f, <%= class_name %>.model_name.human %>
-  <div class="modal-body">
+<%%= context_modal_header @<%= singular_table_name %> %>
+<div class="modal-body">
+  <%%= simple_form_for <%= singular_table_name %>, remote: true do |f| %>
     <%%= f.error_notification %>
+    <%%= back_to_field %>
     <div class="has-error">
       <%%= f.error :base, error_method: :to_sentence %>
     </div>
-    <%%= hidden_field_tag :back_to, @back_to %>
     <div class="row">
       <%- editable_attributes.each do |a| -%>
         <%%= f.input :<%= a.name %>, wrapper_html: { class: 'col-sm-12' } %>
       <%- end -%>
     </div>
-  </div>
+  <%% end %>
+</div>
 
-  <div class="modal-footer">
-    <%%= cancel_modal %>
-    <%%= f.submit class: 'btn btn-primary' %>
-  </div>
-<%% end %>
+<div class="modal-footer">
+  <%%= cancel_modal %>
+  <%%= submit_button @<%= singular_table_name %>%>
+</div>

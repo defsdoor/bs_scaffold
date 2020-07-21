@@ -11,4 +11,13 @@ module <%= class_name.pluralize %>Helper
     p.permit(:sort, :direction, :search)
   end
 
+  def <%= plural_table_name %>_partial(from, action="update")
+    case from
+    when "<%= plural_table_name %>/index"
+      "#{action}_row.js"
+    when "<%= plural_table_name %>/show"
+      "#{action}_show.js"
+    end
+  end
+
 end

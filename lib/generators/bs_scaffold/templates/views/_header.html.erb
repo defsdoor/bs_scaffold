@@ -1,0 +1,6 @@
+<%%- content_for :page_header do %>
+  <%%= page_header "#{<%= class_name %>.model_name.human.titleize} - #{@<%= singular_table_name %>.name}" %>
+<%% end %>
+<%%- content_for :page_header_options do %>
+  <%%= link_to icon(:edit, text: t(:edit)), <%= edit_helper.gsub(/_url/,"_path") %>, class: 'btn btn-primary btn-md-block', data: {toggle: :modal, target: '#Modal'} if policy(<%=class_name%>).update? %>
+<%% end %>

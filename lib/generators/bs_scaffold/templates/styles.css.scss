@@ -1,21 +1,86 @@
-// $font-size-root: 12px;
-$enable-flex: false;
-$sort-icon-color: #ff0000;
+body {
+  font-family: Atlanta, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
 
-$banner-padding: 3px 0.5em 3px 0.5em;
-$banner-margin: 5px 0 5px 0;
-$banner-bg: rgba(0,0,0,.05) !default;
+label.control-label {
+  white-space: nowrap !important;
+}
 
-$table-cell-padding: .5rem !default;
+legend {
+  font-size: 1.3rem;
+}
 
-$card-bg-accent: rgba(0,0,0,.05) !default;
+nav select.timezone {
+  width: 100% !important;
+  margin: 0.5rem;
+}
 
-@import "bootstrap";
-@import "sortable_columns";
-@import "fontello";
-@import "fontello-extensions";
+.form-group.compact {
+ display: inline-block;
+}
 
-body { font-size: 14px; }
+.icon-help {
+  color: silver;
+}
+
+nav.navbar {
+  background-color: $navbar-colour;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+a.navbar-brand img {
+  max-width: 48px;
+  max-height: 48px;
+}
+
+sup.info {
+  color: red;
+}
+
+.nav-username {
+  padding: unset;
+  padding-right: 20px
+}
+
+div#page {
+  background: white;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete-input {
+  width: 100%;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
 
 div.bootstrap-helper {
   position: absolute;
@@ -24,67 +89,363 @@ div.bootstrap-helper {
   z-index: 1000;
 }
 
+div.record-links {
+  background-color: #e9ecef;
+  padding: 3px;
+}
+
 .has-error {
   color: theme-color-level(danger, 6);
 }
 
-.full-height {
+.btn.btn-secondary i {
+  fill: white;
+  stroke: white;
+}
+.input-group-text {
+  fill: white;
+  stroke: white;
+}
+
+table {
+  a {
+    color: $table-link-color;
+    stroke: $table-link-color;
+    fill: $table-link-color;
+  }
+  th {
+    font-weight: normal;
+  } 
+}
+
+/* BOOTSTRAP FILL/STROKE FOR ICONs */
+
+.input-group-text {
+  fill: $input-group-addon-color;
+  stroke: $input-group-addon-color;
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    fill: color-yiq($value);
+    stroke: color-yiq($value);
+  }
+}
+
+.table-striped th {
+  color: #08d;
+}
+
+.with-scroll, .infinite-scroll {
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: auto;
+  box-sizing: border-box;
+  &.filler {
+    overflow-y: hidden;
+  }
+}
+
+@keyframes flash_from_white {
+  0% { background-color: white; }
+  50% { background-color: #FFFF14; }
+  100% { background-color: white; }
+}
+@keyframes flash_from_grey {
+  0% { background-color: rgba(0,0,0,0.05); }
+  50% { background-color: #FFFF14; }
+  100% { background-color: rgba(0,0,0,0.05); }
+}
+
+.table-striped tr:nth-of-type(odd).flash {
+animation: flash_from_grey 1s linear;
+}
+.table-striped tr.flash {
+animation: flash_from_white 1s linear;
+}
+
+.flash {
+animation: flash_from_white 1s linear;
+}
+
+.scrollable-form-box {
+height: 130px;
+overflow-y: scroll;
+overflow-x: hidden;
 }
 
 tr.row-click {
-  cursor: pointer;
+cursor: pointer;
 }
 
 td.links {
-  width: 1%;
-  text-align: right;
-  white-space: nowrap;
+width: 1%;
+text-align: right;
+white-space: nowrap;
 }
 
-a.btn {
-  margin-left: 3px;
-  margin-right: 3px;
+td.tight {
+width: 1%;
+white-space: nowrap;
+}
+
+td.nowrap, th.nowrap {
+white-space: nowrap;
+}
+
+td.centre {
+text-align: center;
+}
+
+td.number {
+text-align: right;
 }
 
 div.tab-pane {
-  padding-top: 5px;
+padding-top: 5px;
 }
 
 div.text-box {
-  height: 4em;
-  overflow-y: scroll;
+height: 4em;
+overflow-y: scroll;
+}
+
+div.checkbox {
+padding-top: 5px;
 }
 
 div.config-view {
-  height: 15em;
-  overflow-y: scroll;
+height: 15em;
+overflow-y: scroll;
 }
 
 .font-fixed {
-  font-family: monospace;
-  font-size: 80%;
+font-family: monospace;
+font-size: 80%;
+}
+
+.btn-block {
+width: auto;
 }
 
 @mixin btn-block {
-  display: block;
-  padding-bottom: 8px;
-  margin-bottom: 3px;
-  width: 100%;
+display: block;
+padding-bottom: 8px;
+margin-bottom: 3px;
 }
 
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-down($breakpoint) {
-    $infix: "-#{$breakpoint}";
-    .btn#{$infix}-block  { @include btn-block; }
-  }
+@include media-breakpoint-down($breakpoint) {
+  $infix: "-#{$breakpoint}";
+  .btn#{$infix}-block  { @include btn-block; }
+}
 }
 
 
 tr.nested-fields {
-  span.help-block {
-    color: theme-color-level(danger, 6);
-    display: block;
+span.help-block {
+  color: theme-color-level(danger, 6);
+  display: block;
+}
+}
+
+table tr {
+&:nth-child(odd) td.box div.box {
+  background-color: white;
+}
+&:nth-child(even) td.box div.box {
+  background-color: #eee;
+}
+td.box {
+  &.left {
+    margin-right: 0px;
+    padding-right: 0px;
+    border-right: none;
+    div.box {
+      padding-left: 10px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
   }
+  &.right {
+    margin-left: 0px;
+    padding-left: 0px;
+    border-left: none;
+    div.box {
+      padding-right: 10px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+  }
+}
+}
+
+div#item-list {
+ul {
+  list-style-type: none;
+  padding-left: 5px;
+  li {
+  }
+}
+}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 90%;
+    max-width:1200px;
+  }
+}
+
+div.form-control {
+overflow: hidden;
+white-space: nowrap;
+&.adaptive {
+  overflow: visible;
+  white-space: normal;
+  min-height:  $input-height;
+  height: auto;
+}
+}
+
+select.form-control {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  &.multiSelectBox {
+    overflow-y: scroll;
+    white-space: normal;
+    min-height:  $input-height;
+    height: 240px;
+    &option {
+      padding: 4px 10px 4px 10px;
+    }
+    &option:hover {
+      background: #EEEEEE;
+    }
+  }
+}
+.multiSelectBox option {
+  padding: 4px 10px 4px 10px;
+}
+
+.multiSelectBox option:hover {
+  background: #EEEEEE;
+}
+
+.flex-main {
+  flex: 1
+} 
+
+.flex-colunm {
+  display: flex;
+  flex-flow: column;
+}
+
+#language-dropdown {
+  vertical-align: middle;
+  position: relative;
+  img {
+    height: 20px;
+    vertical-align: middle;
+  }
+  ul {
+    display:none;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    z-index: 1;
+    li {
+      float: none;
+      a {
+        border: none;
+        white-space: nowrap;
+      }
+      &:hover {
+        background: #74C0D0;
+      }
+    }
+  }
+  &:hover  {
+    height: 90px;
+    overflow-y: scroll;
+    ul {
+      display: block;
+    }
+  }
+}
+#map {
+  width: 100%;
+  height: 500px;
+}
+
+.boolean-field {
+  text-align: center;
+  color: white;
+}
+
+.show-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+i.toggle-sidebar {
+  fill: $yellow;
+  stroke: $yellow;
+}
+
+.filter-active {
+  background: $btn-filter-active !important;
+}
+
+.optionGroup {
+    font-weight: bold;
+}
+
+.optionChild {
+}
+
+.flex-full-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  &.tab-content {
+    min-height: 320px;
+    &> .active {
+      display: flex;
+    }
+  }
+}
+
+.tree-link {
+  display: none;
+}
+
+#uploadMessages {
+  max-height: 480px;
+  width: 100%;
+  overflow-y: scroll;
+  font-size: 0.8em;
+}
+
+.scaled-md {
+  max-width: 320px;
+  max-height: 320px;
+}
+
+div.file {
+  label {
+    padding-right: 1rem;
+  }
+}
+
+td.boolean {
+  padding: 0px 0.5rem;
+  fieldset {
+    margin: 0px !important;
+    padding: 0px;
+  }
+}
+
+th {
+  z-index: 1;
 }

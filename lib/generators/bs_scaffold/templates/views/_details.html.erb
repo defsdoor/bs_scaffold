@@ -1,8 +1,8 @@
 <%% <%= singular_table_name %> = <%= class_name %>Presenter.new( @<%= singular_table_name %>, self ) %>
-<div id="<%= singular_table_name %>">
-<% editable_attributes.map.each do |a| -%>
+<div id="<%= singular_table_name %>_<%%= <%=singular_table_name%>.id %>">
   <div class="row">
-    <%%= bs_display(<%= singular_table_name %>, :<%= a.name %>) %>
+    <% editable_attributes.map.each do |a| -%>
+      <%%= bs_display(<%= singular_table_name %>, :<%= a.name %>) %>
+    <% end -%>
   </div>
-<% end -%>
 </div>

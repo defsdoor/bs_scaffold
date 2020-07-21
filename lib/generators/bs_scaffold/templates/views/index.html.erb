@@ -2,7 +2,6 @@
   <%%= page_header <%= class_name %>.model_name.human(count: 2) %>
 <%% end %>
 <div class="d-sm-flex">
-
   <div class="flex-sm-fill px-1 form-group">
     <label class="sr-only" for="search"><%%= t(:search) %></label>
     <div class="input-group">
@@ -22,9 +21,9 @@
   </div>
 
   <div class="ml-auto px-1 form-group">
-    <%%= link_to icon(:plus, text: t( :new, model: <%= class_name %>.model_name.human)), <%= new_helper.gsub(/_url$/, "_path") %>,
+    <%%= link_to icon(:plus, text: t( :new_record, model: <%= class_name %>.model_name.human)), <%= new_helper.gsub(/_url$/, "_path") %>,
       class: 'btn btn-xs-block btn-primary',
-      data: { toggle: 'modal', target: '#Modal' } %>
+      data: { toggle: 'modal', target: '#Modal' } if policy(<%= class_name %>).create? %>
   </div>
 </div>
 

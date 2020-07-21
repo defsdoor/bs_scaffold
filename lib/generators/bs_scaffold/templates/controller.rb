@@ -3,7 +3,7 @@
 <% end -%>
 
 <% module_namespacing do -%>
-class <%= controller_class_name %>Controller < ApplicationController
+class <%= controller_class_name %>Controller < PunditApplicationController
   before_action :get_<%= plural_table_name %>, only: [:index]
   before_action :get_<%= singular_table_name %>, except: [:new, :create, :index]
 

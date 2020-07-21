@@ -5,7 +5,7 @@
   <td><%%= @<%= singular_table_name %>.<%= a.name %> %>
 <% end -%>
 <td class="links">
-  <%%= link_to  icon('edit', tooltip: t(:edit_record, model: human_name)), <%= edit_helper.gsub(/_url/,"_path") %>, data: { toggle: 'modal', target: '#Modal' } %>
-  <%%= link_to icon('cancel', tooltip: t(:delete_record, model: human_name)), <%= show_helper.gsub(/_url/,"_path") %>, remote: true, method: :delete, data: { confirm: t(:confirm_delete_record, model: human_name) } %>
+  <%%= link_to  icon('edit', tooltip: t(:edit_record, model: human_name)), <%= edit_helper.gsub(/_url/,"_path") %>, data: { toggle: 'modal', target: '#Modal' }if policy(<%=class_name%>).update? %>
+  <%%= link_to icon('cancel', tooltip: t(:delete_record, model: human_name)), <%= show_helper.gsub(/_url/,"_path") %>, remote: true, method: :delete, data: { confirm: t(:confirm_delete_record, model: human_name) } if policy(<%=class_name%>).destroy? %>
 
 

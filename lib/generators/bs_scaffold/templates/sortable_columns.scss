@@ -1,21 +1,21 @@
+$sort-icon-color:  blue !default;
+  
 th {
-  a.current {
-    &:after {
-      font-family: 'fontello';
-      padding-left: 2px;
-      padding-top: 3px;
-      color: $sort-icon-color;
-      text-decoration: none;
-    }
-    &.asc {
-      &:after {
-        content: "\e800";
+  a {
+    i.icon-sort-up { display: none}
+    i.icon-sort-down { display: none}
+    &.current  {
+      &.asc {
+        i.icon-sort-up { display: inline-flex}
       }
-    }
-    &.desc {
-      &:after {
-        content: "\e801";
+      &.desc {
+        i.icon-sort-down { display: inline-flex}
       }
     }
   }
+}
+i.icon-sort-down, i.icon-sort-up {
+  color: $sort-icon-color;
+  fill: $sort-icon-color;
+  stroke: $sort-icon-color;
 }

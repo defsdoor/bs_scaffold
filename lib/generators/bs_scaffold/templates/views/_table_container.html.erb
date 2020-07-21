@@ -3,13 +3,13 @@
     <thead>
       <tr>
 <% editable_attributes.each do |a| -%>
-  <th><%%= sc '<%= a.name %>', <%= class_name %>.human_attribute_name(:<%=a.name.to_sym%>), @sort_column, <%= plural_table_name %>_sort_link, '<%= plural_table_name %>' %>
+        <th><%%= sc '<%= a.name %>', <%= class_name %>.human_attribute_name(:<%=a.name.to_sym%>), @sort_column, <%= plural_table_name %>_sort_link, '<%= plural_table_name %>' %>
 <% end -%>
         <th class="links">
-          <tbody id="<%= plural_table_name %>Rows" data-next-page-url="<%%= <%= plural_table_name %>_next_page( @<%= plural_table_name %> ) %>">
+    <tbody id="<%= plural_table_name %>Rows" data-next-page-url="<%%= <%= plural_table_name %>_next_page( @<%= plural_table_name %> ) %>">
       <%%= render partial: 'row', collection: @<%= plural_table_name %> %>
       <tr class="more table-info">
-        <td class="message" colspan="<%= editable_attributes.size + 1 %>">More
+        <td class="message" colspan="99">More
   </table>
 </div>
 <%%= table_footer("<%= plural_table_name %>", @<%= plural_table_name %>.total_count) %>

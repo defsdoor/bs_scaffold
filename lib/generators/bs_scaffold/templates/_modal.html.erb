@@ -1,11 +1,11 @@
-<div id="Modal" class="modal fade" role="dialog" aria-labelledby="editModal" aria-hidden="true" data-backdrop="static">
-  <div class="modal-dialog" role="document">
+<div id="modalSource" class="d-none">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
-      <div class="text-xs-center">
-        <%%= icon :spinner, spin: :cw, size: 4 %>
-      </div>
-      <div>
+      <div class="text-center">
+        <%= icon :spinner, :lg, :spin, :cw  %>
       </div>
     </div>
   </div>
+</div>
+<div id="Modal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="editModal" aria-hidden="true" data-backdrop="static" data-keyboard="true">
 </div>
